@@ -1,17 +1,14 @@
 /* first */
 .body3 {
+
   background-color: #ffd58e !important;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 10px;
   overflow: hidden;
-  margin: -5px -5px -5px -5px;
-  box-shadow: inset -50px -50px #52b3b6, inset -100px -100px #ec2f3b,
-    inset -150px -150px #f26249, inset -200px -200px #ff9b5a,
-    inset 50px 50px #52b3b6, inset 100px 100px #ec2f3b,
-    inset 150px 150px #f26249, inset 200px 200px #ff9b5a;
-
+  margin: -5px;
+  box-shadow: inset -50px -50px #52b3b6, inset -100px -100px #ec2f3b, inset -150px -150px #f26249, inset -200px -200px #ff9b5a, inset 50px 50px #52b3b6, inset 100px 100px #ec2f3b, inset 150px 150px #f26249, inset 200px 200px #ff9b5a;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,8 +16,10 @@
   bottom: 0;
 }
 .vinyl {
-  width: 304px;
-  height: 297px;
+  width: 100%;
+  height: calc(30vw + 30vh); /* Responsive sizing */
+  max-width: 304px;
+  max-height: 297px;
   border-radius: 50%;
   background: radial-gradient(circle at center, black 50%, gray 100%);
   position: relative;
@@ -28,78 +27,102 @@
   z-index: -1;
 }
 .vinyl2 {
-  grid-area: 5/6/6/7;
-  width: 304px;
-  height: 297px;
+  grid-area:5/6/6/7 ;
+  width: 100%;
+  height: calc(30vw + 30vh); /* Responsive sizing */
+  max-width: 304px;
+  max-height: 297px;
   border-radius: 50%;
   background: radial-gradient(circle at center, black 50%, gray 100%);
   position: relative;
   animation: spin 4s linear infinite;
   z-index: -1;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+@media only screen and (max-width: 600px) {
+  .body3 {
+      grid-template-columns: 1fr;
   }
-  100% {
-    transform: rotate(360deg);
+  .wlcm {
+      font-size: 40px; /* Adjust font size */
+      margin-top: 50px;
+      margin-left: 20px;
+  }
+  .p {
+      font-size: medium; /* Adjust font size */
+      margin-left: 20px;
+  }
+  .btnfirsta {
+      margin-top: 10px;
+      margin-left: 40px;
+  }
+  .btnfirst {
+      height: 150px; /* Adjust button size */
+      width: 80%;
+      font-size: medium;
   }
 }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg); 
+    }
+    100% {
+      transform: rotate(360deg); 
+    }
+  }
 .label {
-  width: 60px; /* Set the label size */
+    width: 60px; /* Set the label size */
   height: 60px; /* Set the label size */
-  background-color: #f26249;
+  background-color:#f26249;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
 }
 
-.vinyl:before,
-.vinyl2:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 90%;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-}
+.vinyl:before, .vinyl2:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+  }
 
-@keyframes shine {
-  0% {
-    color: #f26249; /* Start color (white) */
-    text-shadow: 0 0 10px #f26249; /* Start shadow (white) */
+  @keyframes shine {
+    0% {
+      color:#f26249 ; /* Start color (white) */
+      text-shadow: 0 0 10px #f26249; /* Start shadow (white) */
+    }
+    50% {
+      color:#ff9b5a; /* Mid color (gold) */
+      text-shadow: 0 0 20px #ff9b5a; /* Mid shadow (gold) */
+    }
+    100% {
+      color: #f26249; /* End color (white) */
+      text-shadow: 0 0 10px #f26249; /* End shadow (white) */
+    }
   }
-  50% {
-    color: #ff9b5a; /* Mid color (gold) */
-    text-shadow: 0 0 20px #ff9b5a; /* Mid shadow (gold) */
+  
+  .p {
+    animation: shine 2s infinite; 
   }
-  100% {
-    color: #f26249; /* End color (white) */
-    text-shadow: 0 0 10px #f26249; /* End shadow (white) */
-  }
+.wlcm{
+    color: #152D2E;
+    font-size:70px;
+    font-style: italic;
+    grid-area: 1/2/1/6;
+    margin-top: 85px;
+    margin-left: 100px;
 }
-
-.p {
-  animation: shine 2s infinite; /* Use the 'shine' animation for 2 seconds, and repeat infinitely */
-}
-.wlcm {
-  color: #152d2e;
-  font-size: 70px;
-  font-style: italic;
-  grid-area: 1/2/1/6;
-  margin-top: 85px;
-  margin-left: 100px;
-}
-.p {
-  grid-area: 1/5/1/5;
-  color: #3e8789;
-  font-size: x-large;
-  margin-left: 100px;
+.p{
+    grid-area: 1/5/1/5;
+    color: #3E8789;
+    font-size: x-large;
+    margin-left: 100px;
 }
 
 /* button styling */
