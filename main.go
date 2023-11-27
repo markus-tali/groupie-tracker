@@ -30,7 +30,7 @@ func main() {
 
 func firstPageHandler(w http.ResponseWriter, r *http.Request) {
 	if !checkURL(r.URL.Path) {
-		fmt.Println("error 404, page not found")
+		// fmt.Println("error 404, page not found")
 		fmt.Fprintf(w, "404 Not Found")
 		return
 	}
@@ -50,7 +50,7 @@ func firstPageHandler(w http.ResponseWriter, r *http.Request) {
 
 func mainPageHandler(w http.ResponseWriter, r *http.Request) {
 	if !checkURL(r.URL.Path) {
-		fmt.Println("error 404, page not found")
+		// fmt.Println("error 404, page not found")
 		fmt.Fprintf(w, "404 Not FOund")
 		return
 	}
@@ -61,14 +61,14 @@ func mainPageHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error parsing template", http.StatusInternalServerError)
 		return
 	}
-	fmt.Println("Templated is parsed lol")
+	// fmt.Println("Templated is parsed lol")
 
 	err = tmpl.Execute(w, artists)
 	if err != nil {
 		http.Error(w, "Error executing template", http.StatusInternalServerError)
 		return
 	}
-	fmt.Println("checkcheck")
+	// fmt.Println("checkcheck")
 }
 
 func artistHandler(id int) http.HandlerFunc {

@@ -170,25 +170,26 @@
 .body1 {
   background-color: #ffd58e;
   font-family: Arial, Helvetica, sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
   text-align: center;
   padding: 0;
   margin: 0;
   box-shadow: inset -25px 0 #52b3b6, inset -50px 0 #ec2f3b,
-    inset -75px 0 #f26249, inset -100px 0 #ff9b5a, inset 25px 0 #52b3b6,
-    inset 50px 0 #ec2f3b, inset 75px 0 #f26249, inset 100px 0 #ff9b5a;
+  inset -75px 0 #f26249, inset -100px 0 #ff9b5a, inset 25px 0 #52b3b6,
+  inset 50px 0 #ec2f3b, inset 75px 0 #f26249, inset 100px 0 #ff9b5a;
 }
 
 .h1 {
   text-decoration: underline#52b3b6;
   font-family: initial;
-  grid-area: 1/1/1/5;
+  flex-basis: 1420px;
   color: #152d2e;
   font-size: 100px;
   font-style: italic;
+  margin-right: 211px;
 }
 
 .notouchy {
